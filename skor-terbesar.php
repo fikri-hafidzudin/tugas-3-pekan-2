@@ -1,28 +1,40 @@
 <?php
 function skor_terbesar($arr){
-  $output = [];
+  $result = [];
   $nilai = 0;
+  $nilai1 = 0;
   $nilai2 = 0;
-  $nilai3 = 0;
   foreach ($arr as $key => $value){
-    if ($value['nilai'] > $nilai and $value['kelas'] == 'laravel'){
-      $nilai = $value['nilai'];
-    } elseif ($value['nilai'] > $nilai2 and $value['kelas'] == 'React Native'){
-      $nilai2 = $value['nilai'];
-    } elseif ($value['nilai'] > $nilai3 and $value['kelas'] == 'React JS'){
-      $nilai3 = $value['nilai'];
-    }else{
-      continue;
-    }
-    $output[$value['kelas']] =
+  if ($value['nilai'] > $nilai && $value['kelas'] == 'Laravel'){
+    $nilai = $value['nilai'];
+    $result[$value['kelas']] = 
+    [
+      $result[$value['kelas']] =
+      'nama' => $value['nama'],
+      'kelas' => $value['kelas'],
+      'nilai' => $value['nilai']
+    ];
+  }else if($value['nilai'] > $nilai1 && $value['kelas'] == 'React JS'){
+    $nilai1 = $value['nilai'];
+    $result[$value['kelas']] =
     [
       'nama' => $value['nama'],
       'kelas' => $value['kelas'],
-      'nilai' => $value['nilai'],
+      'nilai' => $value['nilai']
+    ];
+  }else if($value['nilai'] > $nilai2 && $value['kelas'] == 'React Native'){
+    $nilai = $value['nilai'];
+    $result[$value['kelas']] =
+    [
+      'nama' => $value['nama'],
+      'kelas' => $value['kelas'],
+      'nilai' => $value['nilai']
     ];
   }
-  return $output;
+  
+}
 //kode di sini 
+return $result;
 }
 
 // TEST CASES
