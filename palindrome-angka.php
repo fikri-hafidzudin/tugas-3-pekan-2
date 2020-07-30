@@ -4,7 +4,7 @@ function palindrome($str){
     if(strrev($str) ==$str){
         $output = true;
     }
-    return $output;
+    return $output;  
 }
 
 function palindrome_angka($angka){
